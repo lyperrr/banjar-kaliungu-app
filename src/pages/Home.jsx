@@ -1,5 +1,11 @@
+import Hero from "@components/Hero.jsx";
+
 const Home = () => {
-  return <>Halloo ini di page Home</>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
 
 export default Home;

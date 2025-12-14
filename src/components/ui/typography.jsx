@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
-const typographyVariants = cva("text-foreground", {
+const typographyVariants = cva("text-primary", {
   variants: {
     variant: {
       h1: "scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance",

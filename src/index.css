@@ -5,6 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+--background-image-hero: 
+  linear-gradient(
+    to top,
+    oklch(0.2308 0.0957 306.95) 0%,
+    oklch(0.2308 0.0957 306.95 / 0) 100%
+  ),
+  url("/public/banjar-kaliungu.png");
+
   --font-poppins: "Poppins", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
