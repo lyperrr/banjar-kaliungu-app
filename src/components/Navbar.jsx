@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "/logo-kaliungu.png";
@@ -21,11 +21,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
-  const handlePengaduan = () => {
-    navigate("/pengaduan");
-  };
   const navLinks = [
     {
       label: "Beranda",
@@ -199,12 +195,14 @@ const Navbar = () => {
                 );
               })}
               <Button
-                onClick={handlePengaduan}
+                asChild
                 size="lg"
                 className="rounded-full text-accent px-6! hover:cursor-pointer ml-3"
               >
-                <Phone />
-                Pengaduan
+                <Link to="/pengaduan">
+                  <Phone />
+                  Pengaduan
+                </Link>
               </Button>
             </ul>
           </div>
@@ -357,12 +355,14 @@ const Navbar = () => {
                     );
                   })}
                   <Button
-                    onClick={handlePengaduan}
+                    asChild
                     size="lg"
                     className="text-accent px-6! hover:cursor-pointer"
                   >
-                    <Phone />
-                    Pengaduan
+                    <Link to="/pengaduan">
+                      <Phone />
+                      Pengaduan
+                    </Link>
                   </Button>
                 </ul>
               </div>

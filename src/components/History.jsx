@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 import Typography from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-import HistoryImage from "/public/history-section.png";
+import HistoryImage from "/history-section.png";
 
 const History = () => {
   return (
     <section className="py-20 lg:pt-44">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="">
-            <Badge variant="tertiary">Sejarah Banjar</Badge>
+            <Badge variant="tertiary" className="uppercase">Sejarah Banjar</Badge>
             <Typography variant="h2" className="mt-2 text-justify">
               Sejarah Singkat Banjar Adat Kaliungu Kaja Denpasar
             </Typography>
@@ -33,15 +33,15 @@ const History = () => {
               banjar memiliki kewenangan administratif yang mengatur warganya
               dengan aturan adat maupun aturan hukum yang berlaku di Bali.
             </Typography>
-            <Button asChild size="lg" className="mt-4 group">
-              <Link to="">
+            <Button asChild size="lg" className="mt-4 group w-full md:max-w-sm flex mx-auto lg:mx-0">
+              <Link to="/sejarah">
                 Lihat Selengkapnya
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
           <div className="flex justify-end">
-            <img className="w-[85%]" src={HistoryImage} alt="History Image" />
+            <img className="w-full mx-auto md:w-[85%] lg:mx-0" src={HistoryImage} alt="History Image" />
           </div>
         </div>
       </div>

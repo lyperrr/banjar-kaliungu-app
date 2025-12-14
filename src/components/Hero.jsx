@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="container h-full">
         <div className="flex items-center justify-center h-full">
           <div className="text-center space-y-4">
-            <Badge variant="tertiary" className="mx-auto px-4 py-2">
+            <Badge variant="tertiary" className="mx-auto px-4 py-2 uppercase">
               <Sparkles className="size-5" />
               Banjar Adat Kaliungu Kaja • Denpasar
             </Badge>
@@ -45,8 +45,8 @@ const Hero = () => {
                 asChild
                 className="group bg-transparent text-accent hover:text-primary-foreground border-accent"
               >
-                <Link to="/sejarah">
-                  Lihat Sejarah
+                <Link to="/awig-awig">
+                  Awig-Awig
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>

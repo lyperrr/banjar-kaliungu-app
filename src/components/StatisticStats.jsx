@@ -31,23 +31,26 @@ const StatisticStats = () => {
             return (
               <Card
                 key={index}
-                className="bg-primary/70 hover:bg-primary/80 border-primary border-4 transition-colors text-center relative"
+                className="bg-primary/90 hover:bg-primary hover:border-accent border-primary border-4 transition-colors text-center relative"
               >
-                <div className="z-10">
-                  <Typography
-                    variant="h1"
-                    className="font-bold text-primary-foreground text-5xl"
-                  >
-                    {stat.value}
-                  </Typography>
+                <div className="z-10 w-full flex flex-col justify-between items-center h-32">
+                  {/* Label */}
                   <Typography
                     variant="p"
-                    className="text-primary-foreground"
+                    className="text-primary-foreground m-0"
                   >
                     {stat.label}
                   </Typography>
+
+                  {/* Statistic */}
+                  <Typography
+                    variant="h1"
+                    className="font-bold text-primary-foreground text-5xl m-0"
+                  >
+                    {stat.value}
+                  </Typography>
                 </div>
-                <Icon className="size-20 mx-auto text-accent/60 mb-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <Icon className="size-20 mx-auto text-accent/60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               </Card>
             );
           })}
