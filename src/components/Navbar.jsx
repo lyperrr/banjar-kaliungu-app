@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "/logo-kaliungu.png";
@@ -21,6 +21,11 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handlePengaduan = () => {
+    navigate("/pengaduan");
+  };
   const navLinks = [
     {
       label: "Beranda",
@@ -105,48 +110,67 @@ const Navbar = () => {
                 if (navItem.children) {
                   const parentActive = isParentActive(navItem.children);
                   return (
-                    <li key={index} className="relative group">
-                      <Link
+                    <li
+                      key={index}
+                      className="relative"
+                      onMouseEnter={() => setOpenDropdown(true)}
+                      onMouseLeave={() => setOpenDropdown(false)}
+                    >
+                      <Button
                         to={navItem.link}
                         className={cn(
-                          "relative inline-flex items-center gap-2 px-2 py-1 text-base font-medium rounded-lg transition-colors duration-200",
+                          "relative inline-flex bg-transparent hover:bg-transparent items-center gap-2 px-2 py-1 text-base font-medium rounded-lg transition-colors duration-200",
                           parentActive
                             ? "text-accent"
-                            : "text-muted-foreground hover:text-foreground"
+                            : "text-primary/40 hover:text-primary"
                         )}
                       >
                         <span className="font-medium">{navItem.label}</span>
-                        <ChevronDown className="size-4 transition-transform duration-200 group-hover:rotate-180" />
-                      </Link>
+                        <motion.div
+                          animate={{ rotate: openDropdown ? 180 : 0 }}
+                          whileHover={{ y: 2 }}
+                          transition={{ duration: 0.25, ease: "easeOut" }}
+                        >
+                          <ChevronDown className="size-4" />
+                        </motion.div>
+                      </Button>
 
-                      {/* Desktop Dropdown Menu */}
-                      <motion.ul
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute left-0 top-full mt-2 w-64 rounded-lg bg-white shadow-lg border border-primary/20 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out overflow-hidden z-50"
-                      >
-                        {navItem.children.map((child, idx) => (
-                          <motion.li
-                            key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: idx * 0.05 }}
+                      <AnimatePresence>
+                        {openDropdown && (
+                          <motion.ul
+                            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="absolute left-0 top-full mt-2 w-64 rounded-lg bg-white shadow-lg border border-primary/20 overflow-hidden z-50"
                           >
-                            <Link
-                              to={child.link}
-                              className={`block px-4 py-3 hover:bg-primary hover:text-primary-foreground transition-colors duration-150 text-base font-medium border-b-2 border-primary/20 last:border-0 ${
-                                isActive(child.link)
-                                  ? "bg-primary text-primary-foreground"
-                                  : ""
-                              }`}
-                            >
-                              {child.label}
-                            </Link>
-                          </motion.li>
-                        ))}
-                      </motion.ul>
+                            {navItem.children.map((child, idx) => (
+                              <motion.li
+                                key={idx}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -10 }}
+                                transition={{
+                                  duration: 0.15,
+                                  delay: idx * 0.04,
+                                }}
+                              >
+                                <Link
+                                  to={child.link}
+                                  className={cn(
+                                    "block text-left px-4 py-3 text-base font-medium border-b last:border-0 transition-colors",
+                                    isActive(child.link)
+                                      ? "bg-primary text-primary-foreground"
+                                      : "hover:bg-primary hover:text-primary-foreground"
+                                  )}
+                                >
+                                  {child.label}
+                                </Link>
+                              </motion.li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
                     </li>
                   );
                 }
@@ -155,10 +179,10 @@ const Navbar = () => {
                     <Link
                       to={navItem.link}
                       className={cn(
-                        "relative inline-flex items-center gap-2 px-2 py-1 text-base font-medium transition-colors duration-200",
+                        "relative group inline-flex items-center gap-2 px-2 py-1 text-base font-medium transition-colors duration-200",
                         isActive(navItem.link)
                           ? "text-accent"
-                          : "text-muted-foreground hover:text-foreground"
+                          : "text-primary/40 hover:text-primary"
                       )}
                     >
                       {navItem.label}
@@ -166,7 +190,7 @@ const Navbar = () => {
                       {/* underline */}
                       <span
                         className={cn(
-                          "absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-accent transition-transform duration-300",
+                          "absolute -bottom-1 left-0 h-0.5 w-full group-hover:scale-x-100 origin-left scale-x-0 bg-accent transition-transform duration-300",
                           isActive(navItem.link) && "scale-x-100"
                         )}
                       />
@@ -174,7 +198,11 @@ const Navbar = () => {
                   </li>
                 );
               })}
-              <Button size="lg" className="rounded-full text-accent px-6! ml-3">
+              <Button
+                onClick={handlePengaduan}
+                size="lg"
+                className="rounded-full text-accent px-6! hover:cursor-pointer ml-3"
+              >
                 <Phone />
                 Pengaduan
               </Button>
@@ -280,8 +308,7 @@ const Navbar = () => {
                                           setOpenDropdown(null);
                                         }}
                                         className={`
-                                          block px-4 py-3 rounded-lg
-                                         ease-in-out
+                                          block px-4 py-3 rounded-lg ease-in-out
                                           text-base font-medium
                                           border-l-2
                                           ${
@@ -329,7 +356,11 @@ const Navbar = () => {
                       </motion.li>
                     );
                   })}
-                  <Button size="lg" className="text-accent px-6!">
+                  <Button
+                    onClick={handlePengaduan}
+                    size="lg"
+                    className="text-accent px-6! hover:cursor-pointer"
+                  >
                     <Phone />
                     Pengaduan
                   </Button>
