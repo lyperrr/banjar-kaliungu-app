@@ -142,7 +142,7 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.98 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute left-0 top-full mt-1 w-64 rounded-lg bg-background shadow-lg border-2 border-border/20 overflow-hidden z-50"
+                            className="absolute left-0 top-full mt-1 w-64 rounded-lg bg-background shadow-lg overflow-hidden z-50"
                           >
                             {navItem.children.map((child, idx) => (
                               <motion.li
@@ -218,7 +218,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-[72px] bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 top-[72px] bg-primary/40 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
@@ -252,10 +252,10 @@ const Navbar = () => {
                         >
                           <Button
                             variant="ghost"
-                            className={`font-medium py-6 w-full text-left justify-start ${
+                            className={`font-medium py-6 w-full text-left justify-start hover:bg-primary/70 hover:text-primary-foreground ${
                               parentActive
                                 ? "bg-primary text-primary-foreground shadow-md"
-                                : "hover:text-primary-foreground hover:bg-primary/70! hover:shadow-sm"
+                                : ""
                             }`}
                             onClick={() => toggleDropdown(index)}
                             asChild
@@ -314,7 +314,7 @@ const Navbar = () => {
                                           ${
                                             isActive(child.link)
                                               ? "bg-primary/10 text-primary border-primary font-semibold"
-                                              : "border-transparent hover:border-gray-300 hover:bg-primary/70 hover:text-primary-foreground"
+                                              : "border-transparent hover:bg-primary/70 hover:text-primary-foreground"
                                           }
                                         `}
                                       >
@@ -343,7 +343,7 @@ const Navbar = () => {
                           className={`font-medium w-full py-6 text-left justify-start ${
                             isActive(navItem.link)
                               ? "bg-primary text-primary-foreground hover:text-primary-foreground hover:bg-primary/70! shadow-md"
-                              : "hover:shadow-sm hover:text-primary-foreground hover:bg-primary/70!"
+                              : "hover:text-primary-foreground hover:bg-primary/70!"
                           }`}
                           onClick={() => setMobileMenuOpen(false)}
                           asChild

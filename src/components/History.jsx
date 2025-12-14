@@ -1,0 +1,52 @@
+import { Link } from "react-router-dom";
+// import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Typography from "@/components/ui/typography";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
+import HistoryImage from "/public/history-section.png";
+
+const History = () => {
+  return (
+    <section className="py-20 lg:pt-44">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="">
+            <Badge variant="tertiary">Sejarah Banjar</Badge>
+            <Typography variant="h2" className="mt-2 text-justify">
+              Sejarah Singkat Banjar Adat Kaliungu Kaja Denpasar
+            </Typography>
+            <Typography variant="p" className="text-justify">
+              Banjar Adat Kaliungu Kaja didirikan pada tahun 1905 oleh
+              sekelompok warga yang bermukim di daerah tersebut. Awalnya, banjar
+              ini berfungsi sebagai pusat kegiatan adat dan sosial bagi
+              masyarakat setempat. Seiring berjalannya waktu, Banjar Kaliungu
+              Kaja berkembang menjadi komunitas yang solid dengan berbagai
+              kegiatan adat, budaya, dan sosial yang rutin dilaksanakan.
+            </Typography>
+            <Typography variant="p" className="text-justify">
+              Banjar sebagai entitas sosial bermula dari adanya sekelompok orang
+              yang ingin bergabung, bermusyawarah dan kemudian menata kehidupan
+              sehari-harinya dalam sebuah komunitas. Tata kelola banjar di Bali
+              merupakan salah satu komponen administratif terbawah yang tidak
+              terpisah dengan struktur pemerintahan di daerah. Dengan demikian
+              banjar memiliki kewenangan administratif yang mengatur warganya
+              dengan aturan adat maupun aturan hukum yang berlaku di Bali.
+            </Typography>
+            <Button asChild size="lg" className="mt-4 group">
+              <Link to="">
+                Lihat Selengkapnya
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+          <div className="flex justify-end">
+            <img className="w-[85%]" src={HistoryImage} alt="History Image" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default History;
