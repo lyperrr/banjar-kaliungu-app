@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="bg-hero bg-top bg-cover relative h-[90vh]">
+    <section className="bg-hero bg-top bg-cover relative h-screen sm:h-[90vh] pt-20">
       <div className="container h-full">
         <div className="flex items-center justify-center h-full">
           <div className="text-center space-y-4">
@@ -58,8 +58,8 @@ const Hero = () => {
       {/* Shape */}
       <div className="size-62 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 top-26 left-10 animate-pulse mask-radial-from-15%" />
       <div className="size-42 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 bottom-26 right-10 animate-pulse mask-radial-from-15%" />
-      <div className="left-1/2 -translate-x-1/2 bottom-10 absolute animate-bounce text-primary-foreground">
-        <Mouse className="size-8" />
+      <div className="left-1/2 -translate-x-1/2 -bottom-4 sm:bottom-10 absolute animate-bounce text-primary-foreground z-10">
+        <Mouse className="size-6 lg:size-8" />
       </div>
       {/* Waves */}
       <div className="absolute top-full w-full fill-primary">
