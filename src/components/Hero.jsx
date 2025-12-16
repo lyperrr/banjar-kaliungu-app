@@ -3,62 +3,94 @@ import { Badge } from "@/components/ui/badge";
 import { Sparkles, HelpingHand, ArrowRight, Mouse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { containerVariants, itemVariants } from "@/lib/animation";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="bg-hero bg-top bg-cover relative h-screen sm:h-[90vh] pt-20">
       <div className="container h-full">
         <div className="flex items-center justify-center h-full">
-          <div className="text-center space-y-4">
-            <Badge variant="tertiary" className="mx-auto px-4 py-2 uppercase">
-              <Sparkles className="size-5" />
-              Banjar Adat Kaliungu Kaja • Denpasar
-            </Badge>
-            <Typography
-              variant="h3"
-              className="text-primary-foreground max-w-4xl text-3xl lg:text-5xl leading-tight"
-            >
-              Pusat Kehidupan Adat, Sosial, dan Kebersamaan Warga Banjar
-              Kaliungu Kaja Denpasar
-            </Typography>
-            <Typography
-              variant="p"
-              className="text-primary-foreground max-w-2xl mx-auto"
-            >
-              Website resmi Banjar Kaliungu Kaja, Denpasar, sebagai sarana
-              informasi kegiatan adat, pengumuman warga, dan dokumentasi
-              kehidupan bermasyarakat.
-            </Typography>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="text-center space-y-4"
+          >
+            {/* Badge */}
+            <motion.div variants={itemVariants}>
+              <Badge
+                variant="tertiary"
+                className="mx-auto px-4 py-2 uppercase gap-2"
+              >
+                <Sparkles className="size-5" />
+                Banjar Adat Kaliungu Kaja • Denpasar
+              </Badge>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6 max-w-xl mx-auto">
-              <Button variant="tertiary" size="lg" asChild>
+            {/* Title */}
+            <motion.div variants={itemVariants}>
+              <Typography
+                variant="h3"
+                className="text-primary-foreground max-w-4xl text-3xl lg:text-5xl leading-tight"
+              >
+                Pusat Kehidupan Adat, Sosial, dan Kebersamaan Warga Banjar
+                Kaliungu Kaja Denpasar
+              </Typography>
+            </motion.div>
+
+            {/* Description */}
+            <motion.div variants={itemVariants}>
+              <Typography
+                variant="p"
+                className="text-primary-foreground max-w-2xl mx-auto"
+              >
+                Website resmi Banjar Kaliungu Kaja sebagai sarana informasi
+                kegiatan adat, pengumuman warga, dan dokumentasi kehidupan
+                bermasyarakat.
+              </Typography>
+            </motion.div>
+
+            {/* Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6 max-w-xl mx-auto"
+            >
+              <Button variant="tertiary" size="lg" asChild className="w-full">
                 <Link to="/">
                   <HelpingHand className="size-6" />
                   Pelayanan
                 </Link>
               </Button>
+
               <Button
                 variant="outline"
                 size="lg"
                 asChild
-                className="group bg-transparent text-accent hover:text-primary-foreground border-accent"
+                className="group bg-transparent text-accent hover:text-primary-foreground border-accent w-full"
               >
                 <Link to="/awig-awig">
                   Awig-Awig
                   <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Shape */}
-      <div className="size-62 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 top-26 left-10 animate-pulse mask-radial-from-15%" />
-      <div className="size-42 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 bottom-26 right-10 animate-pulse mask-radial-from-15%" />
-      <div className="left-1/2 -translate-x-1/2 bottom-2 sm:bottom-10 absolute animate-bounce text-primary-foreground z-10">
+      {/* Animated Shapes */}
+      <div className="size-62 absolute rounded-full bg-radial from-primary-foreground/20 via-primary-foreground/5 to-primary-foreground/0 top-26 left-10 mask-radial-from-15%" />
+      <div className="size-42 absolute rounded-full bg-radial from-primary-foreground/20 via-primary-foreground/5 to-primary-foreground/0 bottom-26 right-10 mask-radial-from-15%" />
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+        className="left-1/2 -translate-x-1/2 bottom-2 sm:bottom-10 absolute text-primary-foreground z-10"
+      >
         <Mouse className="size-6 lg:size-8" />
-      </div>
+      </motion.div>
       {/* Waves */}
       <div className="absolute top-full w-full fill-primary">
         <svg

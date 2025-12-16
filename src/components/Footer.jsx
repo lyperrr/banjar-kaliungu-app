@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import Logo from "/public/logo-kaliungu.png";
+import Logo from "/logo-kaliungu.png";
 import Typography from "@/components/ui/typography";
 
 const Footer = () => {
