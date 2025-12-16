@@ -197,7 +197,7 @@ const Navbar = () => {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full text-accent px-6! hover:cursor-pointer ml-3"
+                className="rounded-full px-6! hover:cursor-pointer ml-3 text-primary-foreground hover:text-accent"
               >
                 <Link to="/pengaduan">
                   <Phone />
@@ -357,7 +357,7 @@ const Navbar = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="text-accent px-6! hover:cursor-pointer"
+                    className="px-6! hover:cursor-pointer text-primary-foreground hover:text-accent"
                   >
                     <Link to="/pengaduan">
                       <Phone />

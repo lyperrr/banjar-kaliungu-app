@@ -29,7 +29,7 @@ const FloatingAction = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             variant="ghost"
             size="icon"
-            className="rounded-full p-6 shadow-lg bg-primary text-primary-foreground hover:text-primary-foreground border border-accent hover:bg-primary/90"
+            className="rounded-full p-6 shadow-lg bg-primary text-primary-foreground hover:text-accent border border-accent hover:bg-primary/90"
           >
             <ArrowUp className="size-5" />
           </Button>
