@@ -22,7 +22,7 @@ const StatisticStats = () => {
   ];
 
   return (
-    <div className="bg-batik bg-cover bg-center py-20">
+    <div className="bg-batik bg-cover bg-center py-10">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {statsPopulation.map((stat, index) => {

@@ -52,22 +52,22 @@ const Rules = () => {
   ];
 
   return (
-    <section className="container py-12 relative">
+    <section className="container py-10 relative">
       <div className="text-center mb-8">
         <Badge variant="tertiary" className="uppercase">
           awig-awig banjar
         </Badge>
-        <Typography variant="h2" className="">
+        <Typography variant="h2" className="sm:max-w-2xl mx-auto">
           Awig-Awig Banjar Kaliungu Kaja
         </Typography>
-        <Typography variant="muted" className="lg:max-w-2xl mx-auto">
+        <Typography variant="muted" className="sm:max-w-3xl mx-auto">
           Pedoman adat Banjar Kaliungu Kaja yang mengatur tata kehidupan krama,
           pelaksanaan kewajiban adat, serta menjaga keharmonisan dan kebersamaan
           banjar.
         </Typography>
       </div>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center py-6 max-w-5xl mx-auto">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center max-w-5xl mx-auto">
         {/* Top-left */}
         <div className="">
           <RuleCard {...rules[0]} />

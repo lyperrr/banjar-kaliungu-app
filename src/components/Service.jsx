@@ -84,15 +84,15 @@ const Service = () => {
   ];
 
   return (
-    <section className="container py-20">
+    <section className="container py-10">
       <div className="text-center mb-8">
         <Badge variant="tertiary" className="uppercase">
           Pelayanan Terpadu
         </Badge>
-        <Typography variant="h2" className="">
+        <Typography variant="h2" className="sm:max-w-2xl mx-auto">
           Pusat Pelayanan Banjar Kaliungu Kaja
         </Typography>
-        <Typography variant="muted" className="lg:max-w-2xl mx-auto">
+        <Typography variant="muted" className="sm:max-w-3xl mx-auto">
           Pusat pelayanan resmi banjar yang mendukung kebutuhan administrasi,
           pelaksanaan adat, serta kegiatan sosial masyarakat.
         </Typography>

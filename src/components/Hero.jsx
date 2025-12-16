@@ -23,7 +23,7 @@ const Hero = () => {
             </Typography>
             <Typography
               variant="p"
-              className="text-primary-foreground max-w-2xl mx-auto text-lg"
+              className="text-primary-foreground max-w-2xl mx-auto"
             >
               Website resmi Banjar Kaliungu Kaja, Denpasar, sebagai sarana
               informasi kegiatan adat, pengumuman warga, dan dokumentasi
@@ -31,9 +31,7 @@ const Hero = () => {
             </Typography>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6 max-w-xl mx-auto">
-              <Button variant="tertiary" 
-              size="lg"
-              asChild>
+              <Button variant="tertiary" size="lg" asChild>
                 <Link to="/">
                   <HelpingHand className="size-6" />
                   Pelayanan
@@ -58,7 +56,7 @@ const Hero = () => {
       {/* Shape */}
       <div className="size-62 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 top-26 left-10 animate-pulse mask-radial-from-15%" />
       <div className="size-42 absolute rounded-full bg-radial from-primary-foreground/10 via-primary-foreground/5 to-primary-foreground/0 bottom-26 right-10 animate-pulse mask-radial-from-15%" />
-      <div className="left-1/2 -translate-x-1/2 -bottom-4 sm:bottom-10 absolute animate-bounce text-primary-foreground z-10">
+      <div className="left-1/2 -translate-x-1/2 bottom-2 sm:bottom-10 absolute animate-bounce text-primary-foreground z-10">
         <Mouse className="size-6 lg:size-8" />
       </div>
       {/* Waves */}
