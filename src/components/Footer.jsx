@@ -50,13 +50,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           {/* BRAND */}
           <div className="space-y-4 lg:col-span-4">
-          <Link to="/">
-            <img
-              src={Logo}
-              alt="Banjar Kaliungu Kaja"
-              className="size-14 lg:size-20"
-            />
-          </Link>
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="Banjar Kaliungu Kaja"
+                className="size-14 lg:size-20"
+              />
+            </Link>
 
             <Typography variant="p" className="text-muted">
               Website resmi Banjar Kaliungu Kaja sebagai pusat informasi,
@@ -93,9 +93,8 @@ const Footer = () => {
                   variant="p"
                   className="m-0! text-primary-foreground"
                 >
-                  Jl. Belimbing No.39, Dangin Puri Kaja
-                  <br />
-                  Denpasar Utara, Bali 80232
+                  Jl. Belimbing No.39, Dangin Puri Kaja Denpasar Utara, Bali
+                  80232
                 </Typography>
               </div>
 
