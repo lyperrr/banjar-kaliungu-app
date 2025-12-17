@@ -88,7 +88,7 @@ const Footer = () => {
               </Typography>
 
               <div className="flex gap-3 text-muted text-sm">
-                <MapPin size={18} className="shrink-0" />
+                <MapPin className="shrink-0 size-5" />
                 <Typography
                   variant="p"
                   className="m-0! text-primary-foreground"
@@ -99,7 +99,7 @@ const Footer = () => {
               </div>
 
               <div className="flex gap-3 text-muted text-sm">
-                <Phone size={18} />
+                <Phone className="shrink-0 size-5" />
                 <Typography
                   variant="p"
                   className="m-0! text-primary-foreground"
