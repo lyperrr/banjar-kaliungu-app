@@ -35,6 +35,10 @@ const Footer = () => {
       link: "/",
     },
     {
+      name: "Berita",
+      link: "/berita",
+    },
+    {
       name: "Sejarah",
       link: "/sejarah",
     },
