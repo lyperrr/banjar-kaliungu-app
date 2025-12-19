@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import {
   ArrowLeft,
   MapPin,
@@ -22,6 +23,53 @@ const DetailServices = () => {
   const { serviceName } = useParams();
   const navigate = useNavigate();
   const service = servicesData.find((s) => s.id === serviceName);
+
+  useEffect(() => {
+    if (service) {
+      document.title = `${service.title} - Banjar Kaliungu Kaja`;
+
+      // Update meta description
+      const metaDescription = document.querySelector(
+        'meta[name="description"]'
+      );
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          service.shortDescription || service.description?.substring(0, 160)
+        );
+      }
+
+      // Update keywords
+      const metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (metaKeywords) {
+        metaKeywords.setAttribute(
+          "content",
+          `Banjar Kaliungu Kaja, ${service.category}, ${service.title}, layanan, Bali`
+        );
+      }
+
+      // Update Open Graph tags
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute(
+          "content",
+          `${service.title} - Banjar Kaliungu Kaja`
+        );
+      }
+
+      const ogDescription = document.querySelector(
+        'meta[property="og:description"]'
+      );
+      if (ogDescription) {
+        ogDescription.setAttribute(
+          "content",
+          service.shortDescription || service.description?.substring(0, 160)
+        );
+      }
+    } else {
+      document.title = "Layanan Tidak Ditemukan - Banjar Kaliungu Kaja";
+    }
+  }, [service]);
 
   const contactInformation = [
     {
@@ -115,9 +163,9 @@ const DetailServices = () => {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="flex-1 space-y-6">
             {/* About */}
             <motion.div variants={itemVariants}>
               <Card>
@@ -187,9 +235,9 @@ const DetailServices = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="w-full lg:w-80 lg:sticky lg:top-6 lg:self-start h-fit">
             <motion.div variants={itemVariants}>
-              <Card className="lg:sticky lg:top-6">
+              <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Contact className="size-5 text-accent" />

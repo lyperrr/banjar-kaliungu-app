@@ -63,7 +63,7 @@ const DetailHistory = ({ data = null }) => {
       <div>
         {/* Hero */}
         <motion.div
-          className="relative bg-history bg-cover bg-center h-80 md:h-96 lg:h-[70vh] overflow-hidden pt-44"
+          className="relative bg-history bg-cover bg-center h-80 md:h-96 lg:h-[40vh] overflow-hidden pt-44"
           variants={itemVariants}
         >
           <div className="absolute inset-0 flex items-center justify-center">
@@ -162,7 +162,7 @@ const DetailHistory = ({ data = null }) => {
                 <img
                   src={info.image1}
                   alt="Sejarah 1"
-                  className="w-full h-72 object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
@@ -171,7 +171,7 @@ const DetailHistory = ({ data = null }) => {
               <Typography variant="h3">Sejarah Singkat</Typography>
               <Typography
                 variant="p"
-                className="text-justify text-muted-foreground leading-relaxed"
+                className="text-muted-foreground leading-relaxed"
               >
                 {info.paragraph1 || info.content}
               </Typography>
@@ -187,7 +187,7 @@ const DetailHistory = ({ data = null }) => {
               <Typography variant="h3">Keterangan Lokasi</Typography>
               <Typography
                 variant="p"
-                className="text-justify text-muted-foreground leading-relaxed"
+                className="text-muted-foreground leading-relaxed"
               >
                 {info.paragraph2 ||
                   "Kaliungu yang dikenang sebagai peristiwa bersejarah ini membentuk pola sosial dan tradisi yang bertahan hingga kini."}
@@ -202,7 +202,7 @@ const DetailHistory = ({ data = null }) => {
                 <img
                   src={info.image2 || info.image}
                   alt="Sejarah 2"
-                  className="w-full h-56 object-cover"
+                  className="w-full h-full object-cover shrink-0"
                 />
               </div>
             </motion.div>

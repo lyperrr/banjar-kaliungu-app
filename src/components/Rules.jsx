@@ -59,7 +59,8 @@ const Rules = () => {
 
   return (
     <motion.section
-      className="container py-10 relative"
+      className="container py-10 pt-26 relative"
+      id="awig-awig"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
@@ -72,7 +73,7 @@ const Rules = () => {
           </Badge>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto mt-3!">
             Awig-Awig Banjar Kaliungu Kaja
           </Typography>
         </motion.div>

@@ -20,7 +20,7 @@ import {
 
 // Komponen BlogCard
 const BlogCard = ({ post }) => (
-  <Card className="p-0 gap-4 overflow-hidden hover:shadow-md hover:shadow-primary transition-shadow">
+  <Card className="p-0 gap-0 overflow-hidden hover:shadow-md hover:shadow-primary transition-shadow">
     <div className="max-h-70 w-full overflow-hidden">
       <img
         src={post.image}
@@ -30,10 +30,15 @@ const BlogCard = ({ post }) => (
     </div>
 
     <CardHeader className="p-4 py-0 xl:p-6">
-      <Typography className="flex items-center text-xs">
-        <Calendar className="size-4 mr-2" />
-        <span>{post.date}</span>
-      </Typography>
+      <div className="flex justify-between items-start">
+        <Typography className="flex items-center text-xs">
+          <Calendar className="size-4 mr-2" />
+          <span>{post.date}</span>
+        </Typography>
+        <Badge variant="tertiary">
+          {post.category}
+        </Badge>
+      </div>
       <Link to="/">
         <CardTitle className="text-lg font-bold line-clamp-2 cursor-pointer hover:text-accent transition-colors">
           {post.title}
@@ -66,6 +71,7 @@ const Blog = () => {
     {
       id: 1,
       title: "Perancangan website banjar kaliungu kaja",
+      category: "Berita",
       date: "06 Maret 2024",
       image: "banjar-kaliungu.png",
       excerpt:
@@ -74,6 +80,7 @@ const Blog = () => {
     {
       id: 2,
       title: "Perancangan website banjar kaliungu kaja",
+      category: "Pengumuman",
       date: "17 Maret 2024",
       image: "banjar-kaliungu.png",
       excerpt:
@@ -82,6 +89,7 @@ const Blog = () => {
     {
       id: 3,
       title: "Perancangan website banjar kaliungu kaja",
+      category: "Berita",
       date: "24 Desember 2024",
       image: "banjar-kaliungu.png",
       excerpt:
@@ -104,7 +112,7 @@ const Blog = () => {
           </Badge>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto mt-3!">
             Temukan artikel informatif di lingkungan Banjar Kaliungu Kaja
           </Typography>
         </motion.div>

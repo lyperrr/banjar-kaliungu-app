@@ -50,7 +50,7 @@ const Navbar = () => {
     {
       label: "Awig-Awig",
       icon: Gavel,
-      link: "/awig-awig",
+      link: "/#awig-awig",
     },
   ];
 

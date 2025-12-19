@@ -74,7 +74,7 @@ const Service = () => {
           </Badge>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto mt-3!">
             Pusat Pelayanan Banjar Kaliungu Kaja
           </Typography>
         </motion.div>

@@ -28,11 +28,11 @@ const HistorySection = () => {
               Sejarah Banjar
             </Badge>
 
-            <Typography variant="h2" className="mt-2 text-justify">
+            <Typography variant="h2" className="mt-3 text-justify">
               Sejarah Singkat Banjar Adat Kaliungu Kaja Denpasar
             </Typography>
 
-            <Typography variant="p" className="text-justify">
+            <Typography variant="p" className="">
               Banjar Adat Kaliungu Kaja didirikan pada tahun 1905 oleh
               sekelompok warga yang bermukim di daerah tersebut. Awalnya, banjar
               ini berfungsi sebagai pusat kegiatan adat dan sosial bagi
@@ -41,7 +41,7 @@ const HistorySection = () => {
               kegiatan adat, budaya, dan sosial yang rutin dilaksanakan.
             </Typography>
 
-            <Typography variant="p" className="text-justify">
+            <Typography variant="p" className="">
               Banjar sebagai entitas sosial bermula dari adanya sekelompok orang
               yang ingin bergabung, bermusyawarah dan kemudian menata kehidupan
               sehari-harinya dalam sebuah komunitas. Tata kelola banjar di Bali

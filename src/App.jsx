@@ -78,11 +78,7 @@ function App() {
       />
       <Route
         path="/awig-awig"
-        element={
-          <AppLayout>
-            <CustomaryLaw />
-          </AppLayout>
-        }
+        element={<Navigate to="/#awig-awig" replace />}
       />
     </Routes>
   );
