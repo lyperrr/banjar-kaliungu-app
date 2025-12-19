@@ -74,25 +74,25 @@ const Navbar = () => {
             <img
               src={Logo}
               alt="Banjar Kaliungu Kaja"
-              className="size-14 lg:size-20"
+              className="size-14 sm:size-16 lg:size-20"
             />
           </Link>
 
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-transparent"
+            className="lg:hidden hover:bg-transparent"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="size-5" />
+              <X className="size-5 sm:size-7" />
             ) : (
-              <Menu className="size-5" />
+              <Menu className="size-5 sm:size-7" />
             )}
           </Button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <ul className="flex items-center gap-1">
               {navLinks.map((navItem, index) => {
                 const Icon = navItem.icon;
@@ -211,7 +211,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-[72px] bg-primary/40 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 top-full bg-primary/40 backdrop-blur-sm z-0 lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
           )}
@@ -225,9 +225,9 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden absolute left-0 top-full w-full z-50 bg-background border-t shadow-lg"
+              className="lg:hidden absolute left-0 top-full w-full z-50 bg-background border-t shadow-lg"
             >
-              <div className="py-4 px-4">
+              <div className="py-4 px-4 sm:max-w-xl sm:mx-auto">
                 <ul className="flex flex-col gap-3">
                   {navLinks.map((navItem, index) => {
                     const Icon = navItem.icon;

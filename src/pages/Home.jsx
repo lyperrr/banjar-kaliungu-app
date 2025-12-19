@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import History from "@/components/History";
+import History from "@/components/HistorySection";
 import StatisticStats from "@/components/StatisticStats";
 import Service from "@/components/Service";
 import Rules from "@/components/Rules";

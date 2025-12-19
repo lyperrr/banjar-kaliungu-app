@@ -16,10 +16,6 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
 
-  const categories = [
-    ...new Set(servicesData.map((service) => service.category)),
-  ];
-
   const quickLinks = [
     {
       name: "Beranda",

@@ -1,5 +1,11 @@
+import HistorySection from "@/components/HistorySection"
+
 const History = () => {
-  return <>Halloo ini di page History</>;
-};
+  return (
+  <>
+    <HistorySection />
+  </>
+  )
+}
 
 export default History;

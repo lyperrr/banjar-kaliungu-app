@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Typography from "@/components/ui/typography";
 import { servicesData } from "@/data/servicesData";
+import { motion } from "framer-motion";
+import { itemVariants, containerVariants, itemStatCenter } from "@/lib/animation";
 
 const ServiceCard = ({ title, description, serviceId }) => {
   return (
@@ -57,41 +59,63 @@ const ServiceCard = ({ title, description, serviceId }) => {
 
 const Service = () => {
   return (
-    <section id="pelayanan" className="container py-10">
+    <motion.section
+      id="pelayanan"
+      className="container py-10"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <div className="text-center mb-8">
-        <Badge variant="tertiary" className="uppercase">
-          Pelayanan Terpadu
-        </Badge>
-        <Typography variant="h2" className="sm:max-w-2xl mx-auto">
-          Pusat Pelayanan Banjar Kaliungu Kaja
-        </Typography>
-        <Typography variant="muted" className="sm:max-w-3xl mx-auto">
-          Pusat pelayanan resmi banjar yang mendukung kebutuhan administrasi,
-          pelaksanaan adat, serta kegiatan sosial masyarakat.
-        </Typography>
+        <motion.div variants={itemVariants}>
+          <Badge variant="tertiary" className="uppercase">
+            Pelayanan Terpadu
+          </Badge>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+            Pusat Pelayanan Banjar Kaliungu Kaja
+          </Typography>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="muted" className="sm:max-w-3xl mx-auto">
+            Pusat pelayanan resmi banjar yang mendukung kebutuhan administrasi,
+            pelaksanaan adat, serta kegiatan sosial masyarakat.
+          </Typography>
+        </motion.div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {servicesData.slice(0, 4).map((svc, idx) => (
-          <ServiceCard
-            key={idx}
-            serviceId={svc.id}
-            title={svc.title}
-            description={svc.shortDescription}
-          />
+          <motion.div key={idx} variants={itemStatCenter}>
+            <ServiceCard
+              serviceId={svc.id}
+              title={svc.title}
+              description={svc.shortDescription}
+            />
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
-        <div className="w-full md:w-2/3 lg:w-1/2">
+      {/* <div className="mt-8 flex justify-center"> */}
+      <motion.div
+        variants={itemStatCenter}
+        className="mt-8 flex justify-center"
+      >
+        <motion.div
+          variants={itemStatCenter}
+          className="w-full md:w-2/3 lg:w-1/2"
+        >
           <ServiceCard
             serviceId={servicesData[4].id}
             title={servicesData[4].title}
             description={servicesData[4].shortDescription}
           />
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+      {/* </div> */}
+    </motion.section>
   );
 };
 

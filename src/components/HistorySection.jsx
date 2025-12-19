@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Typography from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
@@ -12,17 +11,16 @@ import {
   itemRightVariants,
 } from "@/lib/animation";
 
-
-const History = () => {
+const HistorySection = () => {
   return (
-    <section className="py-20 lg:pt-44">
+    <section className="py-20 lg:pt-44 overflow-hidden">
       <div className="container">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {/* KONTEN KIRI */}
           <motion.div variants={itemLeftVariants}>
@@ -53,22 +51,30 @@ const History = () => {
               dengan aturan adat maupun aturan hukum yang berlaku di Bali.
             </Typography>
 
-            <Button
-              asChild
-              size="lg"
-              className="mt-4 group w-full md:max-w-sm flex mx-auto lg:mx-0"
-            >
-              <Link to="/sejarah">
-                Baca Selengkapnya
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            <motion.div variants={itemLeftVariants}>
+              <Button
+                asChild
+                size="lg"
+                className="group w-full sm:max-w-sm flex mx-auto sm:mx-0 mt-4"
+              >
+                <Link to="/sejarah">
+                  Baca Selengkapnya
+                  <motion.span
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 6 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <ArrowRight />
+                  </motion.span>
+                </Link>
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* GAMBAR KANAN */}
           <motion.div className="flex justify-end" variants={itemRightVariants}>
             <img
-              className="w-full mx-auto md:w-[85%] lg:mx-0"
+              className="w-full mx-auto sm:w-[85%] lg:mx-0"
               src={HistoryImage}
               alt="History Image"
             />
@@ -79,4 +85,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default HistorySection;

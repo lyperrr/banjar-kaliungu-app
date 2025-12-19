@@ -10,6 +10,12 @@ import {
 import { Button } from "@/components/ui/button";
 import Typography from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import {
+  containerVariants,
+  itemStatCenter,
+  itemVariants,
+} from "@/lib/animation";
 
 const RuleCard = ({ number, title, description }) => (
   <Card className="border border-accent/25 rounded-lg shadow-sm p-0 z-10">
@@ -52,44 +58,56 @@ const Rules = () => {
   ];
 
   return (
-    <section className="container py-10 relative">
+    <motion.section
+      className="container py-10 relative"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <div className="text-center mb-8">
-        <Badge variant="tertiary" className="uppercase">
-          awig-awig banjar
-        </Badge>
-        <Typography variant="h2" className="sm:max-w-2xl mx-auto">
-          Awig-Awig Banjar Kaliungu Kaja
-        </Typography>
-        <Typography variant="muted" className="sm:max-w-3xl mx-auto">
-          Pedoman adat Banjar Kaliungu Kaja yang mengatur tata kehidupan krama,
-          pelaksanaan kewajiban adat, serta menjaga keharmonisan dan kebersamaan
-          banjar.
-        </Typography>
+        <motion.div variants={itemVariants}>
+          <Badge variant="tertiary" className="uppercase">
+            awig-awig banjar
+          </Badge>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+            Awig-Awig Banjar Kaliungu Kaja
+          </Typography>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="muted" className="sm:max-w-3xl mx-auto">
+            Pedoman adat Banjar Kaliungu Kaja yang mengatur tata kehidupan
+            krama, pelaksanaan kewajiban adat, serta menjaga keharmonisan dan
+            kebersamaan banjar.
+          </Typography>
+        </motion.div>
       </div>
 
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center max-w-5xl mx-auto">
         {/* Top-left */}
-        <div className="">
+        <motion.div variants={itemStatCenter}>
           <RuleCard {...rules[0]} />
-        </div>
+        </motion.div>
 
         {/* Top-right */}
-        <div className="">
+        <motion.div variants={itemStatCenter}>
           <RuleCard {...rules[1]} />
-        </div>
+        </motion.div>
 
         {/* Bottom-left */}
-        <div className="">
+        <motion.div variants={itemStatCenter}>
           <RuleCard {...rules[2]} />
-        </div>
+        </motion.div>
 
         {/* Bottom-right */}
-        <div className="">
+        <motion.div variants={itemStatCenter}>
           <RuleCard {...rules[3]} />
-        </div>
+        </motion.div>
       </div>
 
-      <div className="mt-8 text-center">
+      <motion.div variants={itemVariants} className="mt-8 text-center">
         <Typography variant="muted" className="mb-3">
           klik tombol dibawah ini agar anda bisa melihat awig - awig banjar
           kaliungu kaja lebih lengkap
@@ -102,8 +120,8 @@ const Rules = () => {
           <Download />
           Download
         </Button>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

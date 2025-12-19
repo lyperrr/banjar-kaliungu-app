@@ -15,7 +15,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Typography from "@/components/ui/typography";
 import { servicesData } from "@/data/servicesData";
-// import { title } from "process";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/lib/animation";
 
 const DetailServices = () => {
   const { serviceName } = useParams();
@@ -63,9 +64,15 @@ const DetailServices = () => {
   return (
     <div className="">
       {/* Header */}
-      <div className="bg-primary border-b">
+      <motion.div
+        className="bg-primary border-b"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="container py-12">
-          <div className="">
+          <motion.div className="" variants={itemVariants}>
             <div className="flex justify-between items-start gap-4">
               <div className="flex flex-col sm:flex-row items-start gap-4 w-full">
                 <div className="flex items-center justify-between gap-4 w-full sm:w-auto sm:gap-0">
@@ -96,116 +103,130 @@ const DetailServices = () => {
             <Typography variant="p" className="text-primary-foreground/80">
               {service.subtitle}
             </Typography>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Content */}
-      <div className="container py-8">
+      <motion.div
+        className="container py-8"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* About */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Info className="size-5 text-accent" />
-                  Tentang Layanan
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Typography variant="p" className="text-justify">
-                  {service.description}
-                </Typography>
-              </CardContent>
-            </Card>
+            <motion.div variants={itemVariants}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Info className="size-5 text-accent" />
+                    Tentang Layanan
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Typography variant="p" className="text-justify">
+                    {service.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Services */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <ListChecks className="size-5 text-accent" />
-                  Layanan yang Tersedia
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {service.services.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
-                      <span className="inline-block size-1.5 rounded-full bg-primary shrink-0"></span>
-                      <Typography variant="p" className="m-0!">
-                        {item}
-                      </Typography>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div variants={itemVariants}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <ListChecks className="size-5 text-accent" />
+                    Layanan yang Tersedia
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {service.services.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3">
+                        <span className="inline-block size-1.5 rounded-full bg-primary shrink-0"></span>
+                        <Typography variant="p" className="m-0!">
+                          {item}
+                        </Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Requirements */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <ClipboardList className="size-5 text-accent" />
-                  Persyaratan
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ol className="space-y-3">
-                  {service.requirements.map((req, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
-                      <div className="shrink-0 size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-semibold">
-                        {idx + 1}
-                      </div>
-                      <Typography variant="p" className="m-0!">
-                        {req}
-                      </Typography>
-                    </li>
-                  ))}
-                </ol>
-              </CardContent>
-            </Card>
+            <motion.div variants={itemVariants}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <ClipboardList className="size-5 text-accent" />
+                    Persyaratan
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ol className="space-y-3">
+                    {service.requirements.map((req, idx) => (
+                      <li key={idx} className="flex items-center gap-3">
+                        <div className="shrink-0 size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-semibold">
+                          {idx + 1}
+                        </div>
+                        <Typography variant="p" className="m-0!">
+                          {req}
+                        </Typography>
+                      </li>
+                    ))}
+                  </ol>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="lg:sticky lg:top-6">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Contact className="size-5 text-accent" />
-                  Informasi Kontak
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-4">
-                  {contactInformation.map((item, idx) => (
-                    <div key={idx} className="flex gap-3">
-                      <item.icon className="size-5 text-accent shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium text-sm mb-1">
-                          {item.title}
-                        </div>
-                        <div
-                          className={`text-sm ${
-                            item.title === "Email" ? "wrap-break-word" : ""
-                          }`}
-                        >
-                          {item.content}
+            <motion.div variants={itemVariants}>
+              <Card className="lg:sticky lg:top-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Contact className="size-5 text-accent" />
+                    Informasi Kontak
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-4">
+                    {contactInformation.map((item, idx) => (
+                      <div key={idx} className="flex gap-3">
+                        <item.icon className="size-5 text-accent shrink-0 mt-0.5" />
+                        <div>
+                          <div className="font-medium text-sm mb-1">
+                            {item.title}
+                          </div>
+                          <div
+                            className={`text-sm ${
+                              item.title === "Email" ? "wrap-break-word" : ""
+                            }`}
+                          >
+                            {item.content}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <Button className="w-full mt-2">
-                  <Phone className="size-4" />
-                  Hubungi Kami
-                </Button>
-              </CardContent>
-            </Card>
+                  <Button className="w-full mt-2 cursor-pointer">
+                    <Phone className="size-4" />
+                    Hubungi Kami
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

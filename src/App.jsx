@@ -8,17 +8,18 @@ import CustomaryLaw from "@/pages/CustomaryLaw";
 import DetailServices from "@/components/DetailServices";
 
 function App() {
-    const location = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-      if (location.hash) {
-        const element = document.getElementById(location.hash.substring(1));
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }, [location]);
-
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   return (
     <Routes>
@@ -31,7 +32,10 @@ function App() {
           </AppLayout>
         }
       />
-      <Route path="/pelayanan" element={<Navigate to="/#pelayanan" replace />} />
+      <Route
+        path="/pelayanan"
+        element={<Navigate to="/#pelayanan" replace />}
+      />
       <Route
         path="/pelayanan/:serviceName"
         element={

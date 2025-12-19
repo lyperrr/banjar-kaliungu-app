@@ -11,10 +11,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Typography from "@/components/ui/typography";
+import { motion } from "framer-motion";
+import {
+  containerVariants,
+  itemStatCenter,
+  itemVariants,
+} from "@/lib/animation";
 
 // Komponen BlogCard
 const BlogCard = ({ post }) => (
-  <Card className="pt-0 overflow-hidden hover:shadow-md hover:shadow-primary transition-shadow">
+  <Card className="p-0 gap-4 overflow-hidden hover:shadow-md hover:shadow-primary transition-shadow">
     <div className="max-h-70 w-full overflow-hidden">
       <img
         src={post.image}
@@ -23,7 +29,7 @@ const BlogCard = ({ post }) => (
       />
     </div>
 
-    <CardHeader>
+    <CardHeader className="p-4 py-0 xl:p-6">
       <Typography className="flex items-center text-xs">
         <Calendar className="size-4 mr-2" />
         <span>{post.date}</span>
@@ -38,11 +44,10 @@ const BlogCard = ({ post }) => (
       </CardDescription>
     </CardHeader>
 
-    <CardFooter className="border-t">
+    <CardFooter className="border-t p-4! xl:p-6!">
       <Button
-        variant="default"
-        size="lg"
-        className="ml-auto group"
+        variant="ghost"
+        className="ml-auto group p-0 h-auto hover:bg-transparent text-sm!"
         onClick={() => console.log(`Membaca selengkapnya: ${post.title}`)}
       >
         <Link to="/" className="flex items-center gap-2">
@@ -85,30 +90,44 @@ const Blog = () => {
   ];
 
   return (
-    <section className="container py-10">
+    <motion.section
+      className="container py-10"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <div className="text-center mb-8">
-        <Badge variant="tertiary" className="uppercase">
-          berita terbaru
-        </Badge>
-        <Typography variant="h2" className="sm:max-w-2xl mx-auto">
-          Temukan artikel informatif di lingkungan Banjar Kaliungu Kaja
-        </Typography>
-        <Typography variant="muted" className="sm:max-w-3xl mx-auto">
-          Pedoman adat Banjar Kaliungu Kaja yang mengatur tata kehidupan krama,
-          pelaksanaan kewajiban adat, serta menjaga keharmonisan dan kebersamaan
-          banjar.
-        </Typography>
+        <motion.div variants={itemVariants}>
+          <Badge variant="tertiary" className="uppercase">
+            berita terbaru
+          </Badge>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="h2" className="sm:max-w-2xl mx-auto">
+            Temukan artikel informatif di lingkungan Banjar Kaliungu Kaja
+          </Typography>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <Typography variant="muted" className="sm:max-w-3xl mx-auto">
+            Pedoman adat Banjar Kaliungu Kaja yang mengatur tata kehidupan
+            krama, pelaksanaan kewajiban adat, serta menjaga keharmonisan dan
+            kebersamaan banjar.
+          </Typography>
+        </motion.div>
       </div>
 
       {/* Grid Blog Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogPosts.map((post) => (
-          <BlogCard key={post.id} post={post} />
+          <motion.div key={post.id} variants={itemStatCenter}>
+            <BlogCard post={post} />
+          </motion.div>
         ))}
       </div>
 
       {/* Informasi tambahan */}
-      <div className="mt-10 text-center">
+      <motion.div variants={itemVariants} className="mt-10 text-center">
         <p className="text-sm text-muted-foreground mb-4">
           Menampilkan {blogPosts.length} berita terbaru
         </p>
@@ -119,10 +138,10 @@ const Blog = () => {
           onClick={() => console.log("Melihat semua artikel")}
         >
           Lihat Semua Artikel
-          <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform:" />
+          <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
         </Button>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
