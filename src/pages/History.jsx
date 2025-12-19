@@ -1,9 +1,9 @@
-import HistorySection from "@/components/HistorySection"
+import DetailHistory from "@/components/DetailHistory";
 
 const History = () => {
   return (
   <>
-    <HistorySection />
+    <DetailHistory />
   </>
   )
 }

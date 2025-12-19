@@ -11,6 +11,12 @@
       oklch(0.2308 0.0957 306.95 / 0) 100%
     ),
     url("/banjar-kaliungu.png");
+  --background-image-history: linear-gradient(
+      to top,
+      oklch(0.2308 0.0957 306.95) 0%,
+      oklch(0.2308 0.0957 306.95 / 0) 100%
+    ),
+    url("/src/assets/image/sejarah-1.png");
   --background-image-batik: linear-gradient(
       oklch(0.2308 0.0957 306.95 / 0.5),
       oklch(0.2308 0.0957 306.95 / 0.5)
