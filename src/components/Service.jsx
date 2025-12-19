@@ -11,8 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Typography from "@/components/ui/typography";
+import { servicesData } from "@/data/servicesData";
 
-const ServiceCard = ({ title, description }) => {
+const ServiceCard = ({ title, description, serviceId }) => {
   return (
     <Card className="border border-primary/30 rounded-lg shadow-sm shadow-primary hover:shadow-md transition-shadow duration-200">
       <CardHeader className="flex gap-4 items-start px-6">
@@ -31,16 +32,16 @@ const ServiceCard = ({ title, description }) => {
       <CardFooter className="flex items-center px-6">
         <Button
           variant="outline"
-          size="sm"
-          className="group overflow-hidden bg-primary/10 hover:bg-transparent border-primary rounded-full ml-auto"
+          size="lg"
+          className="group overflow-hidden bg-primary/10 hover:bg-transparent border-primary ml-auto"
           asChild
         >
           <Link
-            to="/"
+            to={`/pelayanan/${serviceId}`}
             className="relative inline-flex items-center gap-2 px-6 py-2"
           >
             {/* Background animasi */}
-            <span className="bg-primary absolute inset-0 z-0 -translate-x-[90%] rounded-full transition-transform duration-500 ease-in-out group-hover:translate-x-0" />
+            <span className="bg-primary absolute inset-0 z-0 -translate-x-[90%] rounded-sm transition-transform duration-500 ease-in-out group-hover:translate-x-0" />
 
             {/* Content */}
             <span className="relative z-10 flex items-center gap-2 group-hover:text-primary-foreground">
@@ -55,36 +56,8 @@ const ServiceCard = ({ title, description }) => {
 };
 
 const Service = () => {
-  const services = [
-    {
-      title: "POSYANDU",
-      description:
-        "Posyandu adalah layanan kesehatan masyarakat yang menyediakan pemeriksaan balita, imunisasi, penimbangan, dan edukasi kesehatan",
-    },
-    {
-      title: "PECALANG",
-      description:
-        "Pecalang adalah petugas keamanan tradisional di Bali yang bertugas menjaga ketertiban dan keamanan di lingkungan banjar",
-    },
-    {
-      title: "PAUD",
-      description:
-        "PAUD adalah lembaga pendidikan yang menyediakan pembelajaran bagi anak usia dini untuk mengembangkan potensi mereka secara optimal",
-    },
-    {
-      title: "SEKA GONG",
-      description:
-        "Seka Gong adalah kelompok seni tradisional Bali yang memainkan alat musik gamelan untuk mengiringi upacara adat dan pertunjukan seni",
-    },
-    {
-      title: "SEKA SHANTI",
-      description:
-        "Seka Shanti adalah kelompok pemuda di banjar yang berperan aktif dalam kegiatan sosial, budaya, dan keagamaan di komunitasnya",
-    },
-  ];
-
   return (
-    <section className="container py-10">
+    <section id="pelayanan" className="container py-10">
       <div className="text-center mb-8">
         <Badge variant="tertiary" className="uppercase">
           Pelayanan Terpadu
@@ -99,11 +72,12 @@ const Service = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {services.slice(0, 4).map((svc, idx) => (
+        {servicesData.slice(0, 4).map((svc, idx) => (
           <ServiceCard
             key={idx}
+            serviceId={svc.id}
             title={svc.title}
-            description={svc.description}
+            description={svc.shortDescription}
           />
         ))}
       </div>
@@ -111,8 +85,9 @@ const Service = () => {
       <div className="mt-8 flex justify-center">
         <div className="w-full md:w-2/3 lg:w-1/2">
           <ServiceCard
-            title={services[4].title}
-            description={services[4].description}
+            serviceId={servicesData[4].id}
+            title={servicesData[4].title}
+            description={servicesData[4].shortDescription}
           />
         </div>
       </div>

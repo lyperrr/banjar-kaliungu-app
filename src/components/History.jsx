@@ -59,7 +59,7 @@ const History = () => {
               className="mt-4 group w-full md:max-w-sm flex mx-auto lg:mx-0"
             >
               <Link to="/sejarah">
-                Lihat Selengkapnya
+                Baca Selengkapnya
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

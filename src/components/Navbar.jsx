@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "/logo-kaliungu.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { servicesData } from "@/data/servicesData";
 import {
   Menu,
   X,
@@ -31,17 +32,10 @@ const Navbar = () => {
     {
       label: "Pelayanan",
       icon: HelpingHand,
-      children: [
-        { label: "Permohonan Surat", link: "/pelayanan/permohonan-surat" },
-        {
-          label: "Pendaftaran Kelahiran",
-          link: "/pelayanan/pendaftaran-kelahiran",
-        },
-        {
-          label: "Pendaftaran Kematian",
-          link: "/pelayanan/pendaftaran-kematian",
-        },
-      ],
+      children: servicesData.map((service) => ({
+        label: service.title,
+        link: `/pelayanan/${service.id}`,
+      })),
     },
     {
       label: "Berita",
@@ -98,7 +92,7 @@ const Navbar = () => {
           </Button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex h-full bg-background">
+          <div className="hidden md:flex">
             <ul className="flex items-center gap-1">
               {navLinks.map((navItem, index) => {
                 const Icon = navItem.icon;
@@ -138,7 +132,7 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.98 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute left-0 top-full mt-1 w-64 rounded-lg bg-background shadow-lg overflow-hidden z-50"
+                            className="absolute left-0 top-full mt-1 w-64 rounded-lg bg-background shadow-lg overflow-hidden z-50 border"
                           >
                             {navItem.children.map((child, idx) => (
                               <motion.li
@@ -150,11 +144,12 @@ const Navbar = () => {
                                   duration: 0.15,
                                   delay: idx * 0.04,
                                 }}
+                                className="border-b last:border-b-0"
                               >
                                 <Link
                                   to={child.link}
                                   className={cn(
-                                    "block text-left px-4 py-3 text-base font-medium border-b last:border-0 transition-colors",
+                                    "block text-left px-4 py-3 text-base font-medium transition-colors",
                                     isActive(child.link)
                                       ? "bg-primary text-primary-foreground"
                                       : "hover:bg-primary hover:text-primary-foreground"
