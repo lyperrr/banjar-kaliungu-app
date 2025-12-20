@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Download } from "lucide-react";
 import {
   Card,
@@ -16,6 +17,7 @@ import {
   itemStatCenter,
   itemVariants,
 } from "@/lib/animation";
+import pdfFile from "@/assets/pdf/Sejarah Banjar Kaliungu Kaja.pdf";
 
 const RuleCard = ({ number, title, description }) => (
   <Card className="border border-accent/25 rounded-lg shadow-sm p-0 z-10">
@@ -34,6 +36,22 @@ const RuleCard = ({ number, title, description }) => (
 );
 
 const Rules = () => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownload = (e) => {
+    e.preventDefault();
+    setIsDownloading(true);
+    // Simulate download preparation delay
+    setTimeout(() => {
+      const link = document.createElement("a");
+      link.href = pdfFile;
+      link.download = "Sejarah Banjar Kaliungu Kaja.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setIsDownloading(false);
+    }, 2000);
+  };
   const rules = [
     {
       number: 1,
@@ -114,12 +132,22 @@ const Rules = () => {
           kaliungu kaja lebih lengkap
         </Typography>
         <Button
-          variant="default"
           size="lg"
-          className="rounded-full text-primary-foreground hover:text-accent cursor-pointer"
+          className="px-8! hover:text-accent cursor-pointer"
+          disabled={isDownloading}
+          onClick={handleDownload}
         >
-          <Download />
-          Download
+          {isDownloading ? (
+            <>
+              <Loader2 className="size-4 animate-spin" />
+              Downloading...
+            </>
+          ) : (
+            <>
+              <Download className="size-4" />
+              Download
+            </>
+          )}
         </Button>
       </motion.div>
     </motion.section>

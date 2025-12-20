@@ -16,6 +16,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Typography from "@/components/ui/typography";
 import { servicesData } from "@/data/servicesData";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/animation";
 
@@ -121,6 +129,45 @@ const DetailServices = () => {
       >
         <div className="container py-12">
           <motion.div className="" variants={itemVariants}>
+            <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    asChild
+                    className="hover:text-primary-foreground"
+                  >
+                    <Link to="/">Beranda</Link>
+                  </BreadcrumbLink>
+                  <BreadcrumbSeparator />
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    asChild
+                    className="hover:text-primary-foreground"
+                  >
+                    <Link to="/#pelayanan">Pelayanan</Link>
+                  </BreadcrumbLink>
+                  <BreadcrumbSeparator />
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    asChild
+                    className="hover:text-primary-foreground"
+                  >
+                    <Link to="#">{service.category}</Link>
+                  </BreadcrumbLink>
+                  <BreadcrumbSeparator />
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-primary-foreground">
+                    {service.title}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <div className="flex justify-between items-start gap-4">
               <div className="flex flex-col sm:flex-row items-start gap-4 w-full">
                 <div className="flex items-center justify-between gap-4 w-full sm:w-auto sm:gap-0">

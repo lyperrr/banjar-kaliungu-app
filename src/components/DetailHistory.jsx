@@ -215,7 +215,7 @@ const DetailHistory = ({ data = null }) => {
           >
             <Button
               size="lg"
-              className="px-8!"
+              className="px-8! hover:text-accent cursor-pointer"
               disabled={isDownloading}
               onClick={handleDownload}
             >
