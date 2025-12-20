@@ -61,7 +61,7 @@ const Service = () => {
   return (
     <motion.section
       id="pelayanan"
-      className="container py-10"
+      className="container py-10 pt-26"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"

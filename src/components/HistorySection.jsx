@@ -13,7 +13,7 @@ import {
 
 const HistorySection = () => {
   return (
-    <section className="py-20 lg:pt-44 overflow-hidden">
+    <section className="py-20 pt-26 lg:pt-44 overflow-hidden">
       <div className="container">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6"
@@ -28,7 +28,7 @@ const HistorySection = () => {
               Sejarah Banjar
             </Badge>
 
-            <Typography variant="h2" className="mt-3 text-justify">
+            <Typography variant="h2" className="mt-3">
               Sejarah Singkat Banjar Adat Kaliungu Kaja Denpasar
             </Typography>
 

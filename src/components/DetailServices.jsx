@@ -126,7 +126,7 @@ const DetailServices = () => {
                 <div className="flex items-center justify-between gap-4 w-full sm:w-auto sm:gap-0">
                   <Button
                     variant="outline"
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate("/#pelayanan")}
                     className="text-primary-foreground size-9 bg-transparent hover:bg-transparent hover:text-primary-foreground/90 cursor-pointer"
                   >
                     <ArrowLeft className="size-4" />

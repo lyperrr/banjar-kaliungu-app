@@ -35,9 +35,7 @@ const BlogCard = ({ post }) => (
           <Calendar className="size-4 mr-2" />
           <span>{post.date}</span>
         </Typography>
-        <Badge variant="tertiary">
-          {post.category}
-        </Badge>
+        <Badge variant="tertiary">{post.category}</Badge>
       </div>
       <Link to="/">
         <CardTitle className="text-lg font-bold line-clamp-2 cursor-pointer hover:text-accent transition-colors">
@@ -99,7 +97,7 @@ const Blog = () => {
 
   return (
     <motion.section
-      className="container py-10"
+      className="container py-10 pt-26"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
