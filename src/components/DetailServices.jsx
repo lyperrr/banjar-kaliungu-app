@@ -174,7 +174,7 @@ const DetailServices = () => {
                   <Button
                     variant="outline"
                     onClick={() => navigate("/#pelayanan")}
-                    className="text-primary-foreground size-9 bg-transparent hover:bg-transparent hover:text-primary-foreground/90 cursor-pointer"
+                    className="text-primary-foreground size-9 bg-transparent hover:bg-primary-foreground/30 hover:text-primary-foreground/90 cursor-pointer"
                   >
                     <ArrowLeft className="size-4" />
                   </Button>
