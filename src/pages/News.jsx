@@ -1,11 +1,12 @@
 import { useEffect } from "react";
+import NewsSection from "@/components/NewsSection";
 
 const News = () => {
   useEffect(() => {
     document.title = "Berita - Banjar Kaliungu Kaja";
   }, []);
 
-  return <>Halloo ini di page News</>;
+  return <NewsSection />;
 };
 
 export default News;

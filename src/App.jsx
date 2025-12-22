@@ -6,6 +6,7 @@ import News from "@/pages/News";
 import History from "@/pages/History";
 import CustomaryLaw from "@/pages/CustomaryLaw";
 import DetailServices from "@/components/DetailServices";
+import NewsDetail from "@/components/NewsDetail";
 
 function App() {
   const location = useLocation();
@@ -57,6 +58,14 @@ function App() {
         element={
           <AppLayout>
             <News />
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/berita/:id"
+        element={
+          <AppLayout>
+            <NewsDetail />
           </AppLayout>
         }
       />

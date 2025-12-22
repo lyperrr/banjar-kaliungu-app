@@ -1,32 +1,78 @@
-import { UsersRound, Mars, Venus } from "lucide-react";
+import { UsersRound, Mars, Venus, Loader2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Typography from "@/components/ui/typography";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   containerVariants,
   itemLeftVariants,
   itemStatCenter,
   itemRightVariants,
 } from "@/lib/animation";
+import pendudukApi from "@/api/pendudukApi";
 
 const StatisticStats = () => {
-  const statsPopulation = [
-    {
-      label: "Jumlah Penduduk",
-      value: "400+",
-      icon: UsersRound,
-    },
-    {
-      label: "Jumlah Penduduk Laki-laki",
-      value: "180+",
-      icon: Mars,
-    },
-    {
-      label: "Jumlah Penduduk Perempuan",
-      value: "220+",
-      icon: Venus,
-    },
-  ];
+  const [statsPopulation, setStatsPopulation] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async (showLoading = true) => {
+    try {
+      if (showLoading) setLoading(true);
+      const data = await pendudukApi.fetchStatistik();
+      setStatsPopulation([
+        {
+          label: "Jumlah Penduduk",
+          value: data.jumlah_penduduk?.toString() || "0",
+          icon: UsersRound,
+        },
+        {
+          label: "Jumlah Penduduk Laki-laki",
+          value: data.jumlah_laki?.toString() || "0",
+          icon: Mars,
+        },
+        {
+          label: "Jumlah Penduduk Perempuan",
+          value: data.jumlah_perempuan?.toString() || "0",
+          icon: Venus,
+        },
+      ]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Set error state - tetap tampilkan 0 jika error
+      setStatsPopulation([
+        {
+          label: "Jumlah Penduduk",
+          value: "Error",
+          icon: UsersRound,
+        },
+        {
+          label: "Jumlah Penduduk Laki-laki",
+          value: "Error",
+          icon: Mars,
+        },
+        {
+          label: "Jumlah Penduduk Perempuan",
+          value: "Error",
+          icon: Venus,
+        },
+      ]);
+    } finally {
+      if (showLoading) setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // Auto-update setiap 30 detik
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchData(false); // Tidak tampilkan loading saat auto-update
+    }, 30000); // 30 detik
+
+    return () => clearInterval(interval); // Cleanup saat komponen unmount
+  }, []);
 
   return (
     <section className="bg-batik bg-cover bg-center py-10 overflow-hidden">
@@ -72,13 +118,17 @@ const StatisticStats = () => {
                       {stat.label}
                     </Typography>
 
-                    {/* Value */}
-                    <Typography
-                      variant="h1"
-                      className="font-bold text-primary-foreground text-5xl m-0"
-                    >
-                      {stat.value}
-                    </Typography>
+                    {/* Value or Loading */}
+                    {loading ? (
+                      <Loader2 className="animate-spin text-primary-foreground text-5xl" />
+                    ) : (
+                      <Typography
+                        variant="h1"
+                        className="font-bold text-primary-foreground text-5xl m-0"
+                      >
+                        {stat.value || 0}
+                      </Typography>
+                    )}
                   </div>
 
                   {/* Icon background */}

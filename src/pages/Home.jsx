@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import Hero from "@/components/Hero";
+import Hero from "@/components/HeroSection";
 import History from "@/components/HistorySection";
 import StatisticStats from "@/components/StatisticStats";
-import Service from "@/components/Service";
-import Rules from "@/components/Rules";
-import Blog from "@/components/Blog";
+import Service from "@/components/ServiceSection";
+import Rules from "@/components/RulesSection";
+import NewsSection from "@/components/NewsSection";
 
 const Home = () => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
       <StatisticStats />
       <Service />
       <Rules />
-      <Blog />
+      <NewsSection />
     </>
   );
 };
