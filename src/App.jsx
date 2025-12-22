@@ -6,7 +6,7 @@ import News from "@/pages/News";
 import History from "@/pages/History";
 import CustomaryLaw from "@/pages/CustomaryLaw";
 import DetailServices from "@/components/DetailServices";
-import NewsDetail from "@/components/NewsDetail";
+import NewsDetail from "@/components/NewsComponent/NewsDetail";
 
 function App() {
   const location = useLocation();

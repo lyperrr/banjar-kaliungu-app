@@ -40,11 +40,11 @@ export async function fetchNewsDetail(id) {
 }
 
 /**
- * Fetch all news/blogs
- * Returns: array of { id, title, category, content, image, image_url, blocks, ... }
+ * Fetch all news/blogs with pagination
+ * Returns: { data: array, current_page, last_page, per_page, total, ... }
  */
-export async function fetchAllNews() {
-  const url = `${API_BASE}/api/blogs`;
+export async function fetchAllNews(page = 1) {
+  const url = `${API_BASE}/api/blogs?page=${page}`;
 
   const res = await fetch(url, {
     headers: {

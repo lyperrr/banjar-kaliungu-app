@@ -4,7 +4,7 @@ import History from "@/components/HistorySection";
 import StatisticStats from "@/components/StatisticStats";
 import Service from "@/components/ServiceSection";
 import Rules from "@/components/RulesSection";
-import NewsSection from "@/components/NewsSection";
+import NewsSection from "@/components/NewsComponent/NewsSection";
 
 const Home = () => {
   useEffect(() => {

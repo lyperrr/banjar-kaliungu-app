@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import NewsSection from "@/components/NewsSection";
+import NewsSection from "@/components/NewsComponent/NewsSection";
 
 const News = () => {
   useEffect(() => {
