@@ -88,7 +88,7 @@ const NewsSection = () => {
 
   return (
     <motion.section
-      className="container py-10 pt-26"
+      className="container py-10 pt-44"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
