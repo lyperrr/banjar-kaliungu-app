@@ -11,12 +11,12 @@ const Structure = () => {
   const structureData = [
     {
       name: "I Wayan Sudarma",
-      position: "Klian Adat",
+      position: "Kelian Adat",
       image: klianProfile,
     },
     {
       name: "I Nyoman Suardana",
-      position: "Kelian Desa",
+      position: "Kelian Dinas",
       image: klianProfile,
     },
   ];
