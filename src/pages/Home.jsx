@@ -8,6 +8,7 @@ import Service from "@/components/ServiceSection";
 import Rules from "@/components/RulesSection";
 import NewsSection from "@/components/NewsComponent/NewsSection";
 import Structure from "@/components/StructureSection";
+import GallerySection from "@/components/GallerySection";
 
 const Home = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Home = () => {
       <Service />
       <Rules />
       {/* <NewsSection /> */}
+      <GallerySection />
     </>
   );
 };

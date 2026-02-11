@@ -43,7 +43,7 @@ const Navbar = () => {
     {
       label: "Galeri",
       icon: Images,
-      link: "/berita",
+      link: "#gallery",
     },
     {
       label: "Sejarah",
