@@ -107,6 +107,7 @@ const StatisticStats = () => {
                     text-center
                     relative
                     overflow-hidden
+                    p-2
                   "
                 >
                   <div className="z-10 w-full flex flex-col justify-between items-center h-32">
@@ -123,7 +124,7 @@ const StatisticStats = () => {
                       <Loader2 className="animate-spin text-primary-foreground text-5xl" />
                     ) : (
                       <Typography
-                        variant="h1"
+                        variant="h2"
                         className="font-bold text-primary-foreground text-5xl m-0"
                       >
                         {stat.value || 0}
@@ -134,7 +135,7 @@ const StatisticStats = () => {
                   {/* Icon background */}
                   <Icon
                     className="
-                      size-20
+                      size-16
                       mx-auto
                       text-accent/60
                       absolute

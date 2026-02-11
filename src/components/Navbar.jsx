@@ -1,3 +1,5 @@
+/** @format */
+
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,6 +14,7 @@ import {
   HandHelping,
   HelpingHand,
   Newspaper,
+  Images,
   Landmark,
   Gavel,
   ChevronDown,
@@ -38,8 +41,8 @@ const Navbar = () => {
       })),
     },
     {
-      label: "Berita",
-      icon: Newspaper,
+      label: "Galeri",
+      icon: Images,
       link: "/berita",
     },
     {
@@ -112,7 +115,7 @@ const Navbar = () => {
                           "relative inline-flex bg-transparent hover:bg-transparent items-center gap-2 px-2 py-1 text-base font-medium rounded-lg transition-colors duration-200",
                           parentActive
                             ? "text-accent"
-                            : "text-primary/40 hover:text-primary"
+                            : "text-primary/40 hover:text-primary",
                         )}
                       >
                         <span className="font-medium">{navItem.label}</span>
@@ -152,7 +155,7 @@ const Navbar = () => {
                                     "block text-left px-4 py-3 text-base font-medium transition-colors",
                                     isActive(child.link)
                                       ? "bg-primary text-primary-foreground"
-                                      : "hover:bg-primary hover:text-primary-foreground"
+                                      : "hover:bg-primary hover:text-primary-foreground",
                                   )}
                                 >
                                   {child.label}
@@ -173,7 +176,7 @@ const Navbar = () => {
                         "relative group inline-flex items-center gap-2 px-2 py-1 text-base font-medium transition-colors duration-200",
                         isActive(navItem.link)
                           ? "text-accent"
-                          : "text-primary/40 hover:text-primary"
+                          : "text-primary/40 hover:text-primary",
                       )}
                     >
                       {navItem.label}
@@ -182,7 +185,7 @@ const Navbar = () => {
                       <span
                         className={cn(
                           "absolute -bottom-1 left-0 h-0.5 w-full group-hover:scale-x-100 origin-left scale-x-0 bg-accent transition-transform duration-300",
-                          isActive(navItem.link) && "scale-x-100"
+                          isActive(navItem.link) && "scale-x-100",
                         )}
                       />
                     </Link>
