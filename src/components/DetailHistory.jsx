@@ -1,5 +1,7 @@
+/** @format */
+
 import React, { useState } from "react";
-import { Download, Loader2 } from "lucide-react";
+import { Download, Loader2, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Typography from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
@@ -92,7 +94,7 @@ const DetailHistory = ({ data = null }) => {
                             to="/"
                             className="text-primary-foreground/90 hover:text-primary-foreground"
                           >
-                            Beranda
+                            <Home />
                           </Link>
                         </BreadcrumbLink>
                       </BreadcrumbItem>

@@ -1,3 +1,5 @@
+/** @format */
+
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import {
@@ -10,6 +12,7 @@ import {
   ListChecks,
   ClipboardList,
   Contact,
+  Home,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,12 +41,12 @@ const DetailServices = () => {
 
       // Update meta description
       const metaDescription = document.querySelector(
-        'meta[name="description"]'
+        'meta[name="description"]',
       );
       if (metaDescription) {
         metaDescription.setAttribute(
           "content",
-          service.shortDescription || service.description?.substring(0, 160)
+          service.shortDescription || service.description?.substring(0, 160),
         );
       }
 
@@ -52,7 +55,7 @@ const DetailServices = () => {
       if (metaKeywords) {
         metaKeywords.setAttribute(
           "content",
-          `Banjar Kaliungu Kaja, ${service.category}, ${service.title}, layanan, Bali`
+          `Banjar Kaliungu Kaja, ${service.category}, ${service.title}, layanan, Bali`,
         );
       }
 
@@ -61,17 +64,17 @@ const DetailServices = () => {
       if (ogTitle) {
         ogTitle.setAttribute(
           "content",
-          `${service.title} - Banjar Kaliungu Kaja`
+          `${service.title} - Banjar Kaliungu Kaja`,
         );
       }
 
       const ogDescription = document.querySelector(
-        'meta[property="og:description"]'
+        'meta[property="og:description"]',
       );
       if (ogDescription) {
         ogDescription.setAttribute(
           "content",
-          service.shortDescription || service.description?.substring(0, 160)
+          service.shortDescription || service.description?.substring(0, 160),
         );
       }
     } else {
@@ -136,7 +139,9 @@ const DetailServices = () => {
                     asChild
                     className="hover:text-primary-foreground"
                   >
-                    <Link to="/">Beranda</Link>
+                    <Link to="/">
+                      <Home className="size-4" />
+                    </Link>
                   </BreadcrumbLink>
                   <BreadcrumbSeparator />
                 </BreadcrumbItem>
